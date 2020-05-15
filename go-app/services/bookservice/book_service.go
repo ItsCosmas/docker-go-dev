@@ -24,7 +24,6 @@ func NewBookService(
 	}
 }
 
-func (bs *bookService) CreateBook(book *book.Book) (*book.Book,error) {
-	//return bs.Repo.CreateBook(book)
-	return book, nil
+func (bs *bookService) CreateBook(book *book.Book) (*book.Book, error) {
+	return bs.Repo.CreateBook(book)
 }
