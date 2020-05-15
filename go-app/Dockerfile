@@ -4,7 +4,7 @@ FROM golang:alpine
 # Install git
 RUN apk update && apk add --no-cache git
 
-# Where our file will be in the docker container 
+# Where our files will be in the docker container 
 WORKDIR /opt/go-app
 
 # Copy the source from the current directory to the working Directory inside the container 
