@@ -1,0 +1,34 @@
+version: '3.7'
+services:
+    # The Go App
+    go-app:
+        build: ./go-app
+        container_name: go_app
+        depends_on:
+            - 'mongo'
+        environment:
+            - PORT=8000
+        ports:
+            - '8000:8000'
+        volumes:
+            - './go-app:/opt/go-app:cached'
+    # MongoDB
+    mongo:
+        image: 'mongo:4.2.6-bionic'
+        container_name: mongo
+        ports:
+            - '27017:27017'
+        volumes:
+            - ./mongodata:/data/db
+        restart: always
+    # Mongo Express Web-based MongoDB admin interface
+    mongo_express:
+        image: mongo-express
+        container_name: mongo_express
+        depends_on:
+            - 'mongo'
+        ports:
+            - '8081:8081'
+        environment:
+            ME_CONFIG_MONGODB_SERVER: mongo
+        restart: always
