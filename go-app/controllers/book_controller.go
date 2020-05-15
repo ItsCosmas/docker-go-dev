@@ -45,11 +45,11 @@ func (ctl *bookController) PostBook(c *gin.Context) {
 
 	// Create book
 	// If an Error Occurs while creating return the error
-	// FIXME Something very strange
 	if _, err := ctl.bs.CreateBook(&b); err != nil {
 		HTTPRes(c, http.StatusInternalServerError, err.Error(), nil)
 		return
 	}
+
 	// If book is successfully created return a structured Response
 	bookOutput := ctl.mapToBookOutput(&b)
 	HTTPRes(c, http.StatusOK, "Book Published", bookOutput)
