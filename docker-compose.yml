@@ -29,6 +29,4 @@ services:
             - 'mongo'
         ports:
             - '8081:8081'
-        # environment:
-        #     ME_CONFIG_MONGODB_SERVER: mongo
         restart: always
