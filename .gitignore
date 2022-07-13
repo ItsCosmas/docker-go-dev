@@ -1,0 +1,5 @@
+# MongoData volume
+mongodata/
+
+#  Air
+go-app/tmp/
