@@ -1,5 +1,5 @@
 # Pull base image
-FROM golang:alpine
+FROM golang:1.18-alpine
 
 # Install git
 RUN apk update && apk add --no-cache git
@@ -15,7 +15,7 @@ COPY . .
 RUN go mod download
 
 # Install Air for hot reload
-RUN go get -u github.com/cosmtrek/air
+RUN go install github.com/cosmtrek/air@latest
 
 # The ENTRYPOINT defines the command that will be ran when the container starts up
 # In this case air command for hot reload go apps on file changes

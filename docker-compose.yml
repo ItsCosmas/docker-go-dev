@@ -14,7 +14,7 @@ services:
             - './go-app:/opt/go-app:cached'
     # MongoDB
     mongo:
-        image: 'mongo:4.2.6-bionic'
+        image: 'mongo:4.4'
         container_name: mongo
         ports:
             - '27017:27017'
@@ -23,7 +23,7 @@ services:
         restart: always
     # Mongo Express Web-based MongoDB admin interface
     mongo_express:
-        image: mongo-express
+        image: 'mongo-express:0.54.0'
         container_name: mongo_express
         depends_on:
             - 'mongo'
